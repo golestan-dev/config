@@ -1,0 +1,25 @@
+# '$' for non-root, '#' for root
+PS1="# "
+(( USER_ID )) && PS1="$ "
+
+# Color definitions using tput (canonical method)
+typeset COLOR_RESET=$'\001'"$(tput sgr0)"$'\001'
+typeset COLOR_PATH=$'\001'"$(tput setaf 2)"$'\001'     # Green
+typeset COLOR_GIT=$'\001'"$(tput setaf 4)"$'\001'      # Blue
+typeset COLOR_FAIL=$'\001'"$(tput setaf 1)"$'\001'     # Red
+
+
+PS1="${COLOR_PATH}"' ${PWD/#$HOME/\~} '"${COLOR_RESET}"'${|
+	typeset e=$? 
+	typeset	branch=$(
+		   git symbolic-ref --quiet --short HEAD 2>/dev/null ||
+		   git rev-parse --short HEAD 2>/dev/null
+	)	    
+	[ -n "$branch" ] && REPLY="${COLOR_GIT}${branch}${COLOR_RESET} "
+	
+	(( e )) && REPLY+="${COLOR_FAIL}"
+
+	return $e
+		
+}'"$PS1""${COLOR_RESET}"
+
