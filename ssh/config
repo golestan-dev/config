@@ -1,0 +1,31 @@
+# vim: set filetype=sshconfig :
+
+# This is the ssh client per-user configuration file.  See
+# ssh_config(5) for more information. 
+
+# Configuration data is parsed as follows:
+#  1. command line options
+#  2. user-specific file
+#  3. system-wide file
+# Any configuration value is only changed the first time it is set.
+# Thus, host-specific definitions should be at the beginning of the
+# configuration file, and defaults at the end.
+
+# Include per-host configurations
+Include ~/.ssh/conf.d/*.conf
+
+# A single ‘*’ is used to provide global defaults for all hosts.
+Host *
+    # ---- Explicit liveness policy ----
+    ServerAliveInterval 30
+    ServerAliveCountMax 6
+    TCPKeepAlive no
+
+    # ---- Reduce bandwidth consumption ----
+    Compression yes
+
+    # ---- Reuse connections ----
+    ControlMaster auto
+    ControlPath ~/.ssh/control/%C # base path should exist
+    ControlPersist 5m
+

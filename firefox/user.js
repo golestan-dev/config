@@ -244,9 +244,6 @@ user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.connection.enabled", false);
 
-// Enable disk cache to save bandwidth and speed up repeat visits
-user_pref("browser.cache.disk.enable", true);
-
 // ENFORCE HTTPS-ONLY MODE
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
