@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 152                                                             *
+ * version: 154                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -23,9 +23,6 @@ user_pref("content.notify.interval", 100000);
 
 /** GFX ***/
 user_pref("gfx.canvas.accelerated.cache-size", 512);
-
-/** JS ***/
-user_pref("javascript.options.baselinejit.threshold", 50);
 
 /** MEDIA CACHE ***/
 user_pref("media.cache_readahead_limit", 3600);
@@ -105,9 +102,6 @@ user_pref("extensions.enabledScopes", 5);
 /** HEADERS / REFERERS ***/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
-/** CONTAINERS ***/
-user_pref("privacy.userContext.ui.enabled", true);
-
 /** VARIOUS ***/
 user_pref("pdfjs.enableScripting", false);
 
@@ -145,10 +139,12 @@ user_pref("datareporting.usage.uploadEnabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
+user_pref("nimbus.rollouts.enabled", false);
 
 /** CRASH REPORTS ***/
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
@@ -204,10 +200,9 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("findbar.highlightAll", true);
 
-
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
-****************************************************************************/
+ ****************************************************************************/
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
@@ -287,7 +282,6 @@ user_pref("browser.tabs.warnOnClose", true);
 user_pref("browser.warnOnQuit", true);
 // Warn when using the keyboard shortcut to quit (Ctrl+Q / Cmd+Q)
 user_pref("browser.warnOnQuitShortcut", true);
-
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
